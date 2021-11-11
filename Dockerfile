@@ -7,4 +7,4 @@ COPY ./ ./
 RUN mvn clean package 
 
 # set the startup command to execute the jar 
-CMD ["java", "-jar", "target/demo-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/cargo-tracker.jar"]
