@@ -37,7 +37,7 @@ pipeline {
         stage('sonar-scanner') {
             steps {
                 script {
-                    withSonarQubeEnv(credentialsId: 'sonarqube-token', installationName: 'SonarQube')
+                    withSonarQubeEnv(credentialsId: 'sonarqube-token', installationName: 'SonarQube'){
                     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
                        }
                     //def sonarqubeScannerHome = tool name: 'SonarQubeScanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
@@ -46,4 +46,5 @@ pipeline {
               }
                 }
             }
+    }
 }
