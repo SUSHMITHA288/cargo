@@ -14,17 +14,17 @@ pipeline {
                 }
             }
         }
-        //stage("docker image build and publish"){
-            //steps{
-                //script{
-                        //docker.withRegistry('https://registry.hub.docker.com/', 'DockerHub') {
-                        //def customImage = docker.build("docker9686/cargo-tracker")
+        stage("docker image build and publish"){
+            steps{
+                script{
+                        docker.withRegistry('https://registry.hub.docker.com/', 'DockerHub') {
+                        def customImage = docker.build("docker9686/cargo-tracker")
         /* Push the container to the custom Registry */
-                        //customImage.push()
-                        //}
-                //}
-            //}
-        //}
+                        customImage.push()
+                        }
+                }
+            }
+        }
         
         stage("Maven Deploy") {
             steps {
