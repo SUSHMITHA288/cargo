@@ -27,6 +27,14 @@
             <url>http://repository.primefaces.org</url>
         </repository>
     </repositories>
+         
+    <distributionManagement>
+             <snapshotRepository>
+             <id>nexus-snapshots</id>
+             <url>http://localhost:8081/repository/maven-central-hosted/</url>
+             </snapshotRepository>
+    </distributionManagement>
+ 
 
     <dependencyManagement>
         <!-- Arquillian BOM used to reduce collision between testing dependecies. -->
@@ -42,6 +50,14 @@
     </dependencyManagement>
 
     <dependencies>
+         <!-- https://mvnrepository.com/artifact/org.sonatype.plugins/nexus-staging-maven-plugin -->
+        <dependency>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.8</version>
+        </dependency>
+
+             
         <!-- Java EE API -->
         <dependency>
             <groupId>javax</groupId>
@@ -140,6 +156,18 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
+            <plugin>
+                 <groupId>org.sonatype.plugins</groupId>
+                 <artifactId>nexus-staging-maven-plugin</artifactId>
+                 <version>1.6.8</version>
+                 <extensions>true</extensions>
+                 <configuration>
+                       <serverId>nexus-releases</serverId>
+                   <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
+                   <!-- update this to the correct id! -->
+                   <stagingProfileId>1296f79efe04a4d0</stagingProfileId>
+                 </configuration>
+           </plugin> 
         </plugins>
     </build>
 
