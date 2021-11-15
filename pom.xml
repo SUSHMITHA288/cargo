@@ -162,7 +162,7 @@
                  <version>1.6.8</version>
                  <extensions>true</extensions>
                  <configuration>
-                       <serverId>nexus-releases</serverId>
+                       <serverId>nexus</serverId>
                    <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
                    <!-- update this to the correct id! -->
                    <stagingProfileId>1296f79efe04a4d0</stagingProfileId>
