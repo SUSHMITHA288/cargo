@@ -20,17 +20,6 @@ pipeline {
           //      }
             //}
         //}
-        stage("docker image build and publish"){
-            steps{
-                script{
-                        docker.withRegistry('https://registry.hub.docker.com/', 'DockerHub') {
-                        def customImage = docker.build("docker9686/cargo")
-        /* Push the container to the custom Registry */
-                        customImage.push()
-                        }
-                }
-            }
-        }
         stage("Maven Build") {
             steps {
                 script {
@@ -38,6 +27,18 @@ pipeline {
                 }
             }
         }
+        stage("docker image build and publish"){
+            steps{
+                script{
+                        docker.withRegistry('https://registry.hub.docker.com/', 'DockerHub') {
+                        def customImage = docker.build("docker9686/cargo-tracker")
+        /* Push the container to the custom Registry */
+                        customImage.push()
+                        }
+                }
+            }
+        }
+        
         stage("Maven Deploy") {
             steps {
                 script {
