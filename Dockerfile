@@ -1,7 +1,7 @@
 FROM maven:3.6.3-jdk-8 
 
 # copy the source tree and the pom.xml to our new container 
-COPY ~/target/cargo-tracker.jar ~/var/lib/jenkins/workspace/CI/target/cargo-tracker.war 
+COPY ~/src ./
 
 # package our application code 
 RUN mvn clean package 
