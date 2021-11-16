@@ -26,6 +26,7 @@
                  -Dsonar.sources=src/main/  
                  -Dsonar.language=java 
                  -Dsonar.java.binaries=.
+                 -Dsonar.jacoco.reportPath=target/jacoco.exec
         </sonar.buildString>
              
     </properties>
@@ -210,6 +211,15 @@
                 </dependency>
             </dependencies>
             <build>
+                <pluginManagement>
+		   <plugins>
+	               <plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.3</version>
+		      </plugin>
+		   </plugins>
+	       </pluginManagement>
                 <plugins>
                     <plugin>
                         <groupId>org.codehaus.cargo</groupId>
@@ -227,6 +237,23 @@
                             </properties>
                         </configuration>
                     </plugin>
+                    <plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<executions>
+				<execution>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+				</execution>
+				<execution>
+					<id>report</id>
+					<goals>
+						<goal>report</goal>
+					</goals>
+				</execution>
+			</executions>
+		  </plugin>
                 </plugins>
             </build>
         </profile>
