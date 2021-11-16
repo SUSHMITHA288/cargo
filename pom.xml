@@ -18,18 +18,14 @@
         <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
         <webapp.databaseTempDir>/tmp</webapp.databaseTempDir>
         <webapp.graphTraversalUrl>http://localhost:8080/cargo-tracker/rest/graph-traversal/shortest-path</webapp.graphTraversalUrl>
-             
-        <sonar.buildString>
-                 -Dsonar.projectName=net.java 
-                 -Dsonar.projectVersion=${env.BUILD_NUMBER} 
-                 -Dsonar.projectKey=net.java 
-                 -Dsonar.sources=src/main/  
-                 -Dsonar.language=java 
-                 -Dsonar.java.binaries=.
-                 -Dsonar.jacoco.reportPath=target/jacoco.exec
-        </sonar.buildString>
-             
-    </properties>
+         <sonar.projectName>net.java</sonar.projectName>
+         <sonar.projectVersion>${env.BUILD_NUMBER}</sonar.projectVersion> 
+         <sonar.projectKey>net.java</sonar.projectKey>
+	 <sonar.sources>src/main/</sonar.sources> 
+         <sonar.language>java</sonar.language>
+         <sonar.java.binaries>.</sonar.java.binaries>
+         <sonar.jacoco.reportPath>target/jacoco.exec</sonar.jacoco.reportPath>            
+         </properties>
 
     <!-- We need to use the PrimeFaces repository -->
     <repositories>
