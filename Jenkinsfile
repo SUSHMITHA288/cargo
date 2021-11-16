@@ -26,13 +26,7 @@ pipeline {
             }
         }
         
-        stage("Maven Deploy") {
-            steps {
-                script {
-                    sh "mvn deploy"
-                }
-            }
-        }
+        
         
         stage('sonar-scanner') {
             steps {
@@ -46,5 +40,12 @@ pipeline {
               }
                 }
             }
+        stage("Maven Deploy") {
+            steps {
+                script {
+                    sh "mvn deploy"
+                }
+            }
+        }
     }
 }
