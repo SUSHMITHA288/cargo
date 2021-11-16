@@ -211,15 +211,6 @@
                 </dependency>
             </dependencies>
             <build>
-                <pluginManagement>
-		   <plugins>
-	               <plugin>
-			<groupId>org.jacoco</groupId>
-			<artifactId>jacoco-maven-plugin</artifactId>
-			<version>0.8.3</version>
-		      </plugin>
-		   </plugins>
-	       </pluginManagement>
                 <plugins>
                     <plugin>
                         <groupId>org.codehaus.cargo</groupId>
@@ -237,7 +228,28 @@
                             </properties>
                         </configuration>
                     </plugin>
-                    <plugin>
+                </plugins>
+            </build>
+        </profile>
+	  
+	<!-- jacoco report -->
+	<profile>
+	    <id>sonar-coverage</id>
+	    <activation>
+		<activeByDefault>true</activeByDefault>
+	    </activation>
+	    <build>
+		<pluginManagement>
+		   <plugins>
+	               <plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.3</version>
+		      </plugin>
+		   </plugins>
+	       </pluginManagement>
+		  <plugins>  
+		    <plugin>
 			<groupId>org.jacoco</groupId>
 			<artifactId>jacoco-maven-plugin</artifactId>
 			<executions>
@@ -254,9 +266,10 @@
 				</execution>
 			</executions>
 		  </plugin>
-                </plugins>
-            </build>
-        </profile>
+	       </plugins>
+	    </build>
+	 </profile>
+	    
 
         <!-- WebLogic Profile -->
         <profile>
