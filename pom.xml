@@ -24,7 +24,7 @@
 	 <sonar.sources>src/main/</sonar.sources> 
          <sonar.language>java</sonar.language>
          <sonar.java.binaries>.</sonar.java.binaries>
-         //<sonar.jacoco.reportPath>target/jacoco.exec</sonar.jacoco.reportPath>            
+        <!-- <sonar.jacoco.reportPath>target/jacoco.exec</sonar.jacoco.reportPath> -->        
          </properties>
 
     <!-- We need to use the PrimeFaces repository -->
